@@ -1,0 +1,69 @@
+# depslib dependency file v1.0
+1750649312 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\main.cpp
+	<iostream>
+	"menu.h"
+
+1750460225 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\menu.h
+
+1750165901 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\interfaz.cpp
+	<iostream>
+	"interfaz.h"
+	"rlutil.h"
+
+1750165964 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\interfaz.h
+
+1733458330 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1750657043 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\menu.cpp
+	<iostream>
+	"menu.h"
+	"structs.h"
+	"carga.h"
+
+1750679445 source:f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\carga.cpp
+	<iostream>
+	<cstring>
+	"structs.h"
+	"carga.h"
+
+1750657043 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\structs.h
+
+1750657044 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\carga.h
+	"structs.h"
+
+1750704864 source:c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\carga.cpp
+	<iostream>
+	<cstring>
+	"structs.h"
+	"carga.h"
+
+1750723734 c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\structs.h
+	<string>
+
+1750723556 c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\carga.h
+	"structs.h"
+
+1750704864 source:c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\main.cpp
+	<iostream>
+	"menu.h"
+
+1750704864 c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\menu.h
+
+1750704864 source:c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\menu.cpp
+	<iostream>
+	"menu.h"
+	"structs.h"
+	"carga.h"
+
