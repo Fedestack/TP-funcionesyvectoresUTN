@@ -23,15 +23,15 @@ struct FormaPago {
     int porcentaje;      // Positivo (interés), negativo (descuento)
 };
 
-struct Ventas {
+struct Venta {
     int numeroDeCompra;
-    int codigoProducto;
-    string codigo;     //mismo codigo que el de producto
+    int codigoProducto;   //mismo codigo que el de producto
+    string formaDePago;
     int cantidadVendida;
+    int codigoDeCliente;
     int diaDeLaVenta;
+};
 
-
-;}
 
 
 #endif // STRUCTS_H_INCLUDED

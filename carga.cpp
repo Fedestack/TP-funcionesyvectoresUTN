@@ -247,3 +247,12 @@ void cargarFormasPago(FormaPago formas[], bool &formasCargadas, int &cantidadFor
     system("cls");
 }
 
+
+void cargarVentas(Producto productos[], int &cantidadVentas, Marca marcas[]){
+
+
+
+
+
+}
+

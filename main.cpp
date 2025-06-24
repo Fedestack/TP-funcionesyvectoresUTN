@@ -47,7 +47,9 @@ void reporte()
             system("cls");
             return;
             break;
-
+        default: cout << "Opcion no valida\n";
+            system("pause");
+            system("cls");
         }
 
     }

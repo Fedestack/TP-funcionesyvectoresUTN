@@ -8,4 +8,6 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
 
 void cargarFormasPago(FormaPago formas[], bool &cargado, int &cantidad);
 
+void cargarVentas(Producto productos[], int &cantidadVentas, Marca marcas[]);
+
 #endif // CARGA_H_INCLUDED
