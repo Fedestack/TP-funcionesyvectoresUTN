@@ -18,6 +18,7 @@ void menuPrincipal()
     int cantidadProductos = 0;
     bool productosCargados = false;
 
+    // LOTE DE FORMAS DE PAGO
     FormaPago formasPago[5];
     int cantidadFormas = 0;
     bool formasCargadas = false;
@@ -30,6 +31,7 @@ void menuPrincipal()
         cout << "2. Cargar productos" << endl;
         cout << "3. Cargar formas de pago" << endl;
         cout << "4. Cargar ventas" << endl;
+        cout << "5. Mostrar reportes" << endl;
         cout << "0. Salir\n" << endl;
         cout << "SELECCIONE UNA OPCION: ";
         cin >> opcion;
@@ -43,6 +45,12 @@ void menuPrincipal()
             break;
         case 3:
             cargarFormasPago(formasPago, formasCargadas, cantidadFormas);
+            break;
+        case 4:
+
+            break;
+        case 5:
+            reporte();
             break;
         case 0:
             cout << "\n Gracias por usar el sistema.\n";

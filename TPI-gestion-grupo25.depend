@@ -43,25 +43,25 @@
 1750657044 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\carga.h
 	"structs.h"
 
-1750704864 source:c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\carga.cpp
+1750726958 source:c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\carga.cpp
 	<iostream>
 	<cstring>
 	"structs.h"
 	"carga.h"
 
-1750723734 c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\structs.h
+1750730825 c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\structs.h
 	<string>
 
-1750723556 c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\carga.h
+1750730825 c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\carga.h
 	"structs.h"
 
-1750704864 source:c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\main.cpp
+1750731401 source:c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\main.cpp
 	<iostream>
 	"menu.h"
 
-1750704864 c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\menu.h
+1750730825 c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\menu.h
 
-1750704864 source:c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\menu.cpp
+1750731427 source:c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\menu.cpp
 	<iostream>
 	"menu.h"
 	"structs.h"

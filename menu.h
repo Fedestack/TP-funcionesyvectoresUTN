@@ -3,4 +3,7 @@
 
 void menuPrincipal();
 
+void reporte();
+
+
 #endif // MENU_INCLUDED
