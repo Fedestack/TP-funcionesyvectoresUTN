@@ -51,7 +51,8 @@ void menuPrincipal()
             cargarFormasPago(formasPago, formasCargadas, cantidadFormas);
             break;
         case 4:
-            cargarVentas(productos, cantidadVentas, marcas);
+            cargarVentas(productos, cantidadProductos, formasPago, cantidadFormas,
+                   marcasCargadas, productosCargados, formasCargadas);
             break;
         case 5:
             reporte();

@@ -98,6 +98,7 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
         if (p.codigoProducto < 100 || p.codigoProducto > 999 || esConsecutivo(p.codigoProducto)) {
             cout << "Codigo invalido. Debe tener 3 digitos y no ser consecutivos (ej.123).\n";
             cantidadProductos = 0;
+            productosCargados = false;
             limpiarPantalla();
             return;
         }
@@ -108,6 +109,7 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
         if (p.nombre.empty()) {
             cout << "El nombre no puede estar vacío.\n";
             cantidadProductos = 0;
+            productosCargados = false;
             limpiarPantalla();
             return;
         }
@@ -117,6 +119,7 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
         if (p.precioVenta <= 0) {
             cout << "El precio debe ser mayor a 0.\n";
             cantidadProductos = 0;
+            productosCargados = false;
             limpiarPantalla();
             return;
         }
@@ -126,6 +129,7 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
         if (p.precioCompra <= 0) {
             cout << "El precio debe ser mayor a 0.\n";
             cantidadProductos = 0;
+            productosCargados = false;
             limpiarPantalla();
             return;
         }
@@ -135,6 +139,7 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
         if (p.stock <= 0) {
             cout << "El stock debe ser mayor a 0.\n";
             cantidadProductos = 0;
+            productosCargados = false;
             limpiarPantalla();
             return;
         }
@@ -167,7 +172,7 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
     system("cls");
 }
 
-void cargarFormasPago(FormaPago formas[], bool &formasCargadas, int &cantidadFormas) {
+void cargarFormasPago(FormaPago formasPago[], bool &formasCargadas, int &cantidadFormas) {
     if (formasCargadas) {
         cout << "Ya se cargaron las formas de pago.\n";
         limpiarPantalla();
@@ -227,7 +232,7 @@ void cargarFormasPago(FormaPago formas[], bool &formasCargadas, int &cantidadFor
             limpiarPantalla();
             return;
         }
-        formas[cantidadFormas] = f;
+        formasPago[cantidadFormas] = f;
         cantidadFormas++;
 
          if (cantidadFormas < 5) {
@@ -248,11 +253,110 @@ void cargarFormasPago(FormaPago formas[], bool &formasCargadas, int &cantidadFor
 }
 
 
-void cargarVentas(Producto productos[], int &cantidadVentas, Marca marcas[]){
+void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[], int cantidadFormas,
+                  bool marcasCargadas, bool productosCargados, bool formasCargadas) {
 
+    // Validar que todos los lotes estén cargados
+    if (!marcasCargadas || !productosCargados || !formasCargadas) {
+        cout << "Error: Debe cargar todos los lotes (marcas, productos y formas de pago) antes de cargar ventas.\n";
+        limpiarPantalla();
+        return;
+    }
 
+    cout << "\n--- CARGA DE VENTAS ---\n";
+    cout << "Ingrese los datos de las ventas (ingrese 0 en numero de compra para finalizar):\n";
 
+    int numeroCompra;
+    int contadorVentas = 0;
 
+    do {
+        cout << "\n--- Venta #" << (contadorVentas + 1) << " ---\n";
+        cout << "Numero de compra (0 para finalizar): ";
+        cin >> numeroCompra;
 
+        if (numeroCompra == 0) {
+            break; // Terminación normal
+        }
+
+        if (numeroCompra < 0) {
+            cout << "Error: Numero de compra invalido. Carga interrumpida.\n";
+            limpiarPantalla();
+            return;
+        }
+
+        Venta venta;
+        venta.numeroDeCompra = numeroCompra;
+
+        cout << "Codigo de producto: ";
+        cin >> venta.codigoProducto;
+
+        // Validar que el producto exista
+        bool productoExiste = false;
+        for (int i = 0; i < cantidadProductos; i++) {
+            if (productos[i].codigoProducto == venta.codigoProducto) {
+                productoExiste = true;
+                break;
+            }
+        }
+
+        if (!productoExiste) {
+            cout << "Error: Codigo de producto no encontrado en el lote de productos. Carga interrumpida.\n";
+            limpiarPantalla();
+            return;
+        }
+
+        cout << "Forma de pago: ";
+        cin >> venta.formaDePago;
+
+        // Validar que la forma de pago exista
+        bool formaPagoExiste = false;
+        for (int i = 0; i < cantidadFormas; i++) {
+            if (formas[i].codigo == venta.formaDePago) {
+                formaPagoExiste = true;
+                break;
+            }
+        }
+
+        if (!formaPagoExiste) {
+            cout << "Error: Forma de pago no encontrada en el lote de formas de pago. Carga interrumpida.\n";
+            limpiarPantalla();
+            return;
+        }
+
+        cout << "Cantidad vendida: ";
+        cin >> venta.cantidadVendida;
+        if (venta.cantidadVendida <= 0) {
+            cout << "Error: Cantidad vendida invalida. Carga interrumpida.\n";
+            limpiarPantalla();
+            return;
+        }
+
+        cout << "Codigo de cliente (1-50): ";
+        cin >> venta.codigoDeCliente;
+        if (venta.codigoDeCliente < 1 || venta.codigoDeCliente > 50) {
+            cout << "Error: Codigo de cliente invalido. Debe estar entre 1 y 50. Carga interrumpida.\n";
+            limpiarPantalla();
+            return;
+        }
+
+        cout << "Dia de la venta (1-30): ";
+        cin >> venta.diaDeLaVenta;
+        if (venta.diaDeLaVenta < 1 || venta.diaDeLaVenta > 30) {
+            cout << "Error: Dia invalido. Debe estar entre 1 y 30. Carga interrumpida.\n";
+            limpiarPantalla();
+            return;
+        }
+
+        // Si llegamos aquí, todos los datos son válidos
+        // Aquí deberías procesar la venta para los reportes
+        cout << "Venta registrada correctamente.\n";
+        contadorVentas++;
+
+    } while (numeroCompra != 0);
+
+    cout << "\nSe registraron " << contadorVentas << " ventas correctamente.\n";
+    cout << "Lote de ventas cargado exitosamente.\n";
+    system("pause");
+    system("cls");
 }
 

@@ -3,6 +3,8 @@
 
 void menuPrincipal();
 
+
+// FUNCION PARA EL SWITCH DE REPORTES
 void reporte();
 
 
