@@ -31,7 +31,7 @@ void cargarMarcas(Marca marcas[], int &cantidad, bool &cargado) {
 
     for (int i = 0; i < 2; i++) {
         int codigo;
-        char nombre[30];
+        string nombre;
 
         cout << endl;
         cout << "Marca #" << (i + 1) << endl;
@@ -49,9 +49,9 @@ void cargarMarcas(Marca marcas[], int &cantidad, bool &cargado) {
 
         cout << "Nombre de la marca: ";
         cin.ignore();  // limpiar buffer
-        cin.getline(nombre, 30);
+        getline(cin, nombre);
 
-        if (strlen(nombre) == 0) {
+        if (nombre.empty()) {
             cout << "Nombre no puede estar vacío.\n";
             cantidad = 0;
             cargado = false;
