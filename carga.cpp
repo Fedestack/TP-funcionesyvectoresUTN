@@ -415,7 +415,7 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
         // ACTUALIZO EL STOCK
         productos[indiceProducto].stock -= venta.cantidadVendida;
 
-        // Buscar el porcentaje de la forma de pago
+
         float porcentajeFormaPago = 0;
         string nombreFormaPago = "";
         for (int i = 0; i < cantidadFormas; i++)
