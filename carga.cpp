@@ -63,7 +63,7 @@ void cargarMarcas(Marca marcas[], int &cantidad, bool &cargado)
         }
 
         cout << "Nombre de la marca: ";
-        cin.ignore();  // limpiar buffer
+        cin.ignore();
         getline(cin, nombre);
 
         if (nombre.empty())
@@ -296,7 +296,7 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
                   bool &marcasCargadas, bool &productosCargados, bool &formasCargadas, int &cantidadVentas)
 {
 
-    // Validar que todos los lotes estén cargados
+    // VERIFICAMOS QUE TODOS LOS PUNTOS ANTERIORES ESTEN CARGADOS
     if (!marcasCargadas || !productosCargados || !formasCargadas)
     {
         cout << "Error: Debe cargar todos los lotes (marcas, productos y formas de pago) antes de cargar ventas.\n";
@@ -333,7 +333,6 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
         cout << "Codigo de producto: ";
         cin >> venta.codigoProducto;
 
-        // Validar que el producto exista
         bool productoExiste = false;
         int indiceProducto = -1;
         for (int i = 0; i < cantidadProductos; i++)
@@ -356,7 +355,7 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
         cout << "Forma de pago: ";
         cin >> venta.formaDePago;
 
-        // Validar que la forma de pago exista
+
         bool formaPagoExiste = false;
         for (int i = 0; i < cantidadFormas; i++)
         {
@@ -411,11 +410,9 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
             return;
         }
 
-        // Si llegamos aquí, todos los datos son válidos
-        // Aquí deberías procesar la venta para los reportes
 
 
-        // 1. Actualizar stock del producto vendido
+        // ACTUALIZO EL STOCK
         productos[indiceProducto].stock -= venta.cantidadVendida;
 
         // Buscar el porcentaje de la forma de pago
@@ -431,22 +428,21 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
             }
         }
 
-// Calcular precios
         float precioBase = productos[indiceProducto].precioVenta * venta.cantidadVendida;
         float precioFinal;
 
         if (porcentajeFormaPago < 0)
         {
-            // Es descuento (porcentaje negativo)
+
             precioFinal = precioBase * (1 + porcentajeFormaPago/100.0);
         }
         else
         {
-            // Es incremento/interés (porcentaje positivo)
+
             precioFinal = precioBase * (1 + porcentajeFormaPago/100.0);
         }
 
-// Mostrar información de la venta procesada
+
         cout << "\n--- VENTA PROCESADA ---\n";
         cout << "Producto: " << productos[indiceProducto].nombre << endl;
         cout << "Cantidad vendida: " << venta.cantidadVendida << endl;
