@@ -27,6 +27,15 @@ void limpiarPantalla()
 
 
 void cargarMarcas(Marca marcas[], int &cantidad, bool &cargado) {
+
+    if (cargado) {
+        cout << "Ya se cargaron las marcas.\n";
+        limpiarPantalla();
+            return;
+    }
+
+
+
     cout << "\n--- CARGA DE MARCAS ---\n";
 
     for (int i = 0; i < 2; i++) {
@@ -254,7 +263,7 @@ void cargarFormasPago(FormaPago formasPago[], bool &formasCargadas, int &cantida
 
 
 void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[], int cantidadFormas,
-                  bool marcasCargadas, bool productosCargados, bool formasCargadas) {
+                  bool &marcasCargadas, bool &productosCargados, bool &formasCargadas, int &cantidadVentas) {
 
     // Validar que todos los lotes estén cargados
     if (!marcasCargadas || !productosCargados || !formasCargadas) {
@@ -267,15 +276,14 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
     cout << "Ingrese los datos de las ventas (ingrese 0 en numero de compra para finalizar):\n";
 
     int numeroCompra;
-    int contadorVentas = 0;
 
     do {
-        cout << "\n--- Venta #" << (contadorVentas + 1) << " ---\n";
+        cout << "\n--- Venta #" << (cantidadVentas + 1) << " ---\n";
         cout << "Numero de compra (0 para finalizar): ";
         cin >> numeroCompra;
 
         if (numeroCompra == 0) {
-            break; // Terminación normal
+            break;
         }
 
         if (numeroCompra < 0) {
@@ -331,6 +339,17 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
             return;
         }
 
+//        if (productos[i].stock < venta.cantidadVendida) {
+//            cout << "Error: Stock insuficiente. Stock disponible: " << productos[i].stock
+//                 << ", cantidad solicitada: " << venta.cantidadVendida << ". Carga interrumpida.\n";
+//            limpiarPantalla();
+//            return;
+//        }
+
+
+
+
+
         cout << "Codigo de cliente (1-50): ";
         cin >> venta.codigoDeCliente;
         if (venta.codigoDeCliente < 1 || venta.codigoDeCliente > 50) {
@@ -350,11 +369,11 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
         // Si llegamos aquí, todos los datos son válidos
         // Aquí deberías procesar la venta para los reportes
         cout << "Venta registrada correctamente.\n";
-        contadorVentas++;
+        cantidadVentas++;
 
     } while (numeroCompra != 0);
 
-    cout << "\nSe registraron " << contadorVentas << " ventas correctamente.\n";
+    cout << "\nSe registraron " << cantidadVentas << " ventas correctamente.\n";
     cout << "Lote de ventas cargado exitosamente.\n";
     system("pause");
     system("cls");

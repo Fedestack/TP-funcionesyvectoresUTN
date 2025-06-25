@@ -24,7 +24,6 @@ void menuPrincipal()
     bool formasCargadas = false;
 
     //LOTE DE VENTAS
-    Venta ventas;
     int cantidadVentas = 0;
 
     int opcion;
@@ -52,7 +51,7 @@ void menuPrincipal()
             break;
         case 4:
             cargarVentas(productos, cantidadProductos, formasPago, cantidadFormas,
-                   marcasCargadas, productosCargados, formasCargadas);
+                   marcasCargadas, productosCargados, formasCargadas, cantidadVentas);
             break;
         case 5:
             reporte();
