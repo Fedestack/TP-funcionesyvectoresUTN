@@ -200,8 +200,18 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
     system("cls");
 }
 
-void cargarFormasPago(FormaPago formasPago[], bool &formasCargadas, int &cantidadFormas)
+void cargarFormasPago(FormaPago formasPago[], bool &formasCargadas, int &cantidadFormas, Marca marcas[], int cantidadMarcas)
 {
+
+    if (!cantidadMarcas)
+    {
+        cout << "No se han cargado marcas. Debe cargar el lote de marcas antes.\n";
+        limpiarPantalla();
+        return;
+    }
+
+
+
     if (formasCargadas)
     {
         cout << "Ya se cargaron las formas de pago.\n";

@@ -49,7 +49,7 @@ void menuPrincipal()
             cargarProductos(productos, cantidadProductos, productosCargados, marcas, cantidadMarcas);
             break;
         case 3:
-            cargarFormasPago(formasPago, formasCargadas, cantidadFormas);
+            cargarFormasPago(formasPago, formasCargadas, cantidadFormas, marcas, cantidadMarcas);
             break;
         case 4:
             cargarVentas(productos, cantidadProductos, formasPago, cantidadFormas,
