@@ -481,3 +481,6 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
     limpiarPantalla();
 }
 
+
+
+

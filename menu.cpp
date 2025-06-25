@@ -28,7 +28,8 @@ void menuPrincipal()
 
     int opcion;
 
-    do {
+    do
+    {
         cout << "\n===== MENU PRINCIPAL =====\n" << endl;
         cout << "1. Cargar marcas" << endl;
         cout << "2. Cargar productos" << endl;
@@ -39,7 +40,8 @@ void menuPrincipal()
         cout << "SELECCIONE UNA OPCION: ";
         cin >> opcion;
 
-        switch (opcion) {
+        switch (opcion)
+        {
         case 1:
             cargarMarcas(marcas, cantidadMarcas, marcasCargadas);
             break;
@@ -51,7 +53,7 @@ void menuPrincipal()
             break;
         case 4:
             cargarVentas(productos, cantidadProductos, formasPago, cantidadFormas,
-                   marcasCargadas, productosCargados, formasCargadas, cantidadVentas);
+                         marcasCargadas, productosCargados, formasCargadas, cantidadVentas);
             break;
         case 5:
             reporte();
@@ -65,7 +67,8 @@ void menuPrincipal()
             system("cls");
         }
 
-    } while (opcion != 0);
+    }
+    while (opcion != 0);
 }
 
 
@@ -87,8 +90,10 @@ void reporte()
 
         switch(opcion)
         {
-
         case 1:
+            reporteRecaudacionPorProducto(productos, cantProductos, ventas, cantVentas);
+            break;
+
             break;
         case 2:
             break;
@@ -104,7 +109,8 @@ void reporte()
             system("cls");
             return;
             break;
-        default: cout << "Opcion no valida\n";
+        default:
+            cout << "Opcion no valida\n";
             system("pause");
             system("cls");
         }
