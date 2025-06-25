@@ -453,7 +453,7 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
 
         if (porcentajeFormaPago < 0)
         {
-            cout << "Descuento " << nombreFormaPago << ": " << abs(porcentajeFormaPago) << "%" << endl;
+            cout << "Descuento " << nombreFormaPago << ": " << (porcentajeFormaPago) << "%" << endl;
             cout << "Descuento aplicado: $" << (precioBase - precioFinal) << endl;
         }
         else if (porcentajeFormaPago > 0)

@@ -91,9 +91,7 @@ void reporte()
         switch(opcion)
         {
         case 1:
-            reporteRecaudacionPorProducto(productos, cantProductos, ventas, cantVentas);
-            break;
-
+           // reporteRecaudacionPorProducto(productos, cantProductos, ventas, cantVentas);
             break;
         case 2:
             break;
