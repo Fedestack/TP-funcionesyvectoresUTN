@@ -42,7 +42,7 @@ void cargarMarcas(Marca marcas[], int &cantidad, bool &cargado)
 
     cout << "\n--- CARGA DE MARCAS ---\n";
 
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 10; i++)
     {
         int codigo;
         string nombre;
@@ -83,8 +83,7 @@ void cargarMarcas(Marca marcas[], int &cantidad, bool &cargado)
 
     cargado = true;
     cout << "\nLote de marcas cargado correctamente.\n";
-    system("pause");
-    system("cls");
+    limpiarPantalla();
 }
 
 
@@ -107,7 +106,7 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
 
     cout << "\n--- CARGA DE PRODUCTOS ---\n";
 
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 20; i++)
     {
         Producto p;
 
@@ -196,8 +195,7 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
 
     productosCargados = true;
     cout << "\nProductos cargados correctamente.\n";
-    system("pause");
-    system("cls");
+    limpiarPantalla();
 }
 
 void cargarFormasPago(FormaPago formasPago[], bool &formasCargadas, int &cantidadFormas, Marca marcas[], int cantidadMarcas)
@@ -283,17 +281,17 @@ void cargarFormasPago(FormaPago formasPago[], bool &formasCargadas, int &cantida
         formasPago[cantidadFormas] = f;
         cantidadFormas++;
 
-        if (cantidadFormas < 5)
-        {
-            char opcion;
-            cout << "¿Deseas cargar otra forma de pago? (S/N): ";
-            cin >> opcion;
-
-            if (toupper(opcion) != 'S')
-            {
-                break;
-            }
-        }
+//        if (cantidadFormas < 5)
+//        {
+//            char opcion;
+//            cout << "¿Deseas cargar otra forma de pago? (S/N): ";
+//            cin >> opcion;
+//
+//            if (toupper(opcion) != 'S')
+//            {
+//                break;
+//            }
+//        }
     }
 
     formasCargadas = true;
