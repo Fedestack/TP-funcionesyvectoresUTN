@@ -36,6 +36,10 @@
 		<Unit filename="carga.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="limpiarPantalla.cpp" />
+		<Unit filename="limpiarPantalla.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="main.cpp" />
 		<Unit filename="menu.cpp" />
 		<Unit filename="menu.h" />

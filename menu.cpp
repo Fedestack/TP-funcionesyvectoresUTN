@@ -2,6 +2,7 @@
 #include "menu.h"
 #include "structs.h"
 #include "carga.h"
+#include "limpiarPantalla.h"
 
 using namespace std;
 
@@ -63,8 +64,7 @@ void menuPrincipal()
             break;
         default:
             cout << "\n Opcion no valida.\n";
-            system("pause");
-            system("cls");
+            void limpiarPantalla();
         }
 
     }
@@ -103,14 +103,12 @@ void reporte()
             break;
         case 0:
             cout << "Regresando al menu principal\n";
-            system("pause");
-            system("cls");
+            limpiarPantalla();
             return;
             break;
         default:
             cout << "Opcion no valida\n";
-            system("pause");
-            system("cls");
+            limpiarPantalla();
         }
 
     }

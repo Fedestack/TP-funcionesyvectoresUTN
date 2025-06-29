@@ -2,6 +2,7 @@
 #include <cstring>
 #include "structs.h"
 #include "carga.h"
+#include "limpiarPantalla.h"
 
 using namespace std;
 
@@ -20,12 +21,7 @@ bool esConsecutivo(int numero)
 }
 
 
-// FUNCION PARA LIMPIAR LA PANTALLA
-void limpiarPantalla()
-{
-    system("pause");
-    system("cls");
-}
+void limpiarPantalla();
 
 
 void cargarMarcas(Marca marcas[], int &cantidad, bool &cargado)

@@ -7,5 +7,4 @@ void menuPrincipal();
 // FUNCION PARA EL SWITCH DE REPORTES
 void reporte();
 
-
 #endif // MENU_INCLUDED
