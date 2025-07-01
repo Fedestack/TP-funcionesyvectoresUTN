@@ -32,6 +32,14 @@ struct Venta {
     int diaDeLaVenta;
 };
 
+struct InfoProducto
+    {
+        int codigo;
+        string nombre;
+        float totalRecaudado;
+        int cantidadVendida;
+        int stockRestante;
+    };
 
 
 #endif // STRUCTS_H_INCLUDED

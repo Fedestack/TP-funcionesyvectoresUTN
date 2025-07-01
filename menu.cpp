@@ -25,7 +25,7 @@ void menuPrincipal()
     bool formasCargadas = false;
 
     //LOTE DE VENTAS
-    Venta venta;
+    Venta venta[100];
     int cantidadVentas = 0;
 
     int opcion;
@@ -73,7 +73,7 @@ void menuPrincipal()
 }
 
 
-void reporte(Producto productos[], Marca marcas[], FormaPago formasPago[], int cantidadProductos, int cantidadVentas, Venta venta)
+void reporte(Producto productos[], Marca marcas[], FormaPago formasPago[], int cantidadProductos, int cantidadVentas, Venta venta[])
 {
     int opcion;
 
@@ -92,7 +92,7 @@ void reporte(Producto productos[], Marca marcas[], FormaPago formasPago[], int c
         switch(opcion)
         {
         case 1:
-            reporteRecaudacionPorProducto(productos, marcas, formasPago, cantidadProductos, cantidadVentas, venta);
+            reporteRecaudacionPorProducto(productos, cantidadProductos, venta, cantidadVentas);
             break;
         case 2:
             break;

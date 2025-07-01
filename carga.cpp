@@ -284,7 +284,7 @@ void cargarFormasPago(FormaPago formasPago[], bool &formasCargadas, int &cantida
 
 
 void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[], int cantidadFormas,
-                  bool &marcasCargadas, bool &productosCargados, bool &formasCargadas, int &cantidadVentas, Venta venta)
+                  bool &marcasCargadas, bool &productosCargados, bool &formasCargadas, int &cantidadVentas, Venta venta[])
 {
 
     // VERIFICAMOS QUE TODOS LOS PUNTOS ANTERIORES ESTEN CARGADOS
@@ -318,17 +318,18 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
             return;
         }
 
-        //Venta venta;
-        venta.numeroDeCompra = numeroCompra;
+
+        venta[cantidadVentas].numeroDeCompra = numeroCompra;
+
 
         cout << "Codigo de producto: ";
-        cin >> venta.codigoProducto;
+        cin >> venta[cantidadVentas].codigoProducto;
 
         bool productoExiste = false;
         int indiceProducto = -1;
         for (int i = 0; i < cantidadProductos; i++)
         {
-            if (productos[i].codigoProducto == venta.codigoProducto)
+            if (productos[i].codigoProducto == venta[cantidadVentas].codigoProducto)
             {
                 productoExiste = true;
                 indiceProducto = i;
@@ -344,13 +345,13 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
         }
 
         cout << "Forma de pago: ";
-        cin >> venta.formaDePago;
+        cin >> venta[cantidadVentas].formaDePago;
 
 
         bool formaPagoExiste = false;
         for (int i = 0; i < cantidadFormas; i++)
         {
-            if (formas[i].codigo == venta.formaDePago)
+            if (formas[i].codigo == venta[cantidadVentas].formaDePago)
             {
                 formaPagoExiste = true;
                 break;
@@ -365,18 +366,18 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
         }
 
         cout << "Cantidad vendida: ";
-        cin >> venta.cantidadVendida;
-        if (venta.cantidadVendida <= 0)
+        cin >> venta[cantidadVentas].cantidadVendida;
+        if (venta[cantidadVentas].cantidadVendida <= 0)
         {
             cout << "Error: Cantidad vendida invalida. Carga interrumpida.\n";
             limpiarPantalla();
             return;
         }
 
-        if (productos[indiceProducto].stock < venta.cantidadVendida)
+        if (productos[indiceProducto].stock < venta[cantidadVentas].cantidadVendida)
         {
             cout << "Error: Stock insuficiente. Stock disponible: " << productos[indiceProducto].stock
-                 << ", cantidad solicitada: " << venta.cantidadVendida << ". Carga interrumpida.\n";
+                 << ", cantidad solicitada: " << venta[cantidadVentas].cantidadVendida << ". Carga interrumpida.\n";
             limpiarPantalla();
             return;
         }
@@ -384,8 +385,8 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
 
 
         cout << "Codigo de cliente (1-50): ";
-        cin >> venta.codigoDeCliente;
-        if (venta.codigoDeCliente < 1 || venta.codigoDeCliente > 50)
+        cin >> venta[cantidadVentas].codigoDeCliente;
+        if (venta[cantidadVentas].codigoDeCliente < 1 || venta[cantidadVentas].codigoDeCliente > 50)
         {
             cout << "Error: Codigo de cliente invalido. Debe estar entre 1 y 50. Carga interrumpida.\n";
             limpiarPantalla();
@@ -393,8 +394,8 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
         }
 
         cout << "Dia de la venta (1-30): ";
-        cin >> venta.diaDeLaVenta;
-        if (venta.diaDeLaVenta < 1 || venta.diaDeLaVenta > 30)
+        cin >> venta[cantidadVentas].diaDeLaVenta;
+        if (venta[cantidadVentas].diaDeLaVenta < 1 || venta[cantidadVentas].diaDeLaVenta > 30)
         {
             cout << "Error: Dia invalido. Debe estar entre 1 y 30. Carga interrumpida.\n";
             limpiarPantalla();
@@ -404,14 +405,14 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
 
 
         // ACTUALIZO EL STOCK
-        productos[indiceProducto].stock -= venta.cantidadVendida;
+        productos[indiceProducto].stock -= venta[cantidadVentas].cantidadVendida;
 
 
         float porcentajeFormaPago = 0;
         string nombreFormaPago = "";
         for (int i = 0; i < cantidadFormas; i++)
         {
-            if (formas[i].codigo == venta.formaDePago)
+            if (formas[i].codigo == venta[cantidadVentas].formaDePago)
             {
                 porcentajeFormaPago = formas[i].porcentaje;
                 nombreFormaPago = formas[i].nombre;
@@ -419,7 +420,7 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
             }
         }
 
-        float precioBase = productos[indiceProducto].precioVenta * venta.cantidadVendida;
+        float precioBase = productos[indiceProducto].precioVenta * venta[cantidadVentas].cantidadVendida;
         float precioFinal;
 
         if (porcentajeFormaPago < 0)
@@ -436,8 +437,8 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
 
         cout << "\n--- VENTA PROCESADA ---\n";
         cout << "Producto: " << productos[indiceProducto].nombre << endl;
-        cout << "Cantidad vendida: " << venta.cantidadVendida << endl;
-        cout << "Forma de pago: " << venta.formaDePago << " (" << nombreFormaPago << ")" << endl;
+        cout << "Cantidad vendida: " << venta[cantidadVentas].cantidadVendida << endl;
+        cout << "Forma de pago: " << venta[cantidadVentas].formaDePago << " (" << nombreFormaPago << ")" << endl;
         cout << "Stock restante: " << productos[indiceProducto].stock << endl;
         cout << "Precio unitario: $" << productos[indiceProducto].precioVenta << endl;
         cout << "Subtotal: $" << precioBase << endl;
@@ -472,16 +473,7 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
     limpiarPantalla();
 }
 
-void reporteRecaudacionPorProducto(Producto productos[], Marca marcas[], FormaPago formasPago[],
-                                   int cantidadProductos, int cantidadVentas, Venta venta){
 
-
-
-
-
-
-
-}
 
 
 

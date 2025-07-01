@@ -9,12 +9,12 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
 void cargarFormasPago(FormaPago formas[], bool &cargado, int &cantidad, Marca marcas[], int cantidadMarcas);
 
 void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formasPago[], int cantidadFormas,
-                  bool &marcasCargadas, bool &productosCargados, bool &formasCargadas, int &cantidadVentas, Venta venta);
+                  bool &marcasCargadas, bool &productosCargados, bool &formasCargadas, int &cantidadVentas, Venta venta[]);
 
-void reporteRecaudacionPorProducto(Producto productos[], Marca marcas[], FormaPago formasPago[],
-                                   int cantidadProductos, int cantidadVentas, Venta venta);
+void reporteRecaudacionPorProducto(Producto productos[], int cantidadProductos, Venta venta[], int cantidadVentas);
 
-void reporte(Producto productos[], Marca marcas[], FormaPago formasPago[], int cantidadProductos, int cantidadVentas, Venta venta);
+
+void reporte(Producto productos[], Marca marcas[], FormaPago formasPago[], int cantidadProductos, int cantidadVentas, Venta venta[]);
 
 
 #endif // CARGA_H_INCLUDED
