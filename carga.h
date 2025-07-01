@@ -21,4 +21,7 @@ void reportePorcentajeDeVentaPorFormaDePago(FormaPago formasPago[], int cantidad
 void reporteVentasPorMarcaYPago(Marca marcas[], int cantidadMarcas, Venta venta[], int cantidadVentas, FormaPago formasPago[],
                                 int cantidadFormas, Producto productos[], int cantidadProductos);
 
+void reporteProductosSinVentas(Producto productos[], int cantidadProductos,
+                                Venta ventas[], int cantidadVentas);
+
 #endif // CARGA_H_INCLUDED

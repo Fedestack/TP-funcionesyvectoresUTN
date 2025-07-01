@@ -55,6 +55,7 @@ void reporteRecaudacionPorProducto(Producto productos[], int cantidadProductos, 
 //    cout << "COD\tNOMBRE\t\t\tRECAUDADO\tVENDIDO\tSTOCK\n";
 //    cout << "----------------------------------------------------------------------\n";
 
+    cout << "\n--- REPORTE DE RECAUDACION POR PRODUCTO ---\n\n";
 
     cout << left;
     cout << setw(10) << "COD"
@@ -159,7 +160,7 @@ void reporteVentasPorMarcaYPago(Marca marcas[], int cantidadMarcas, Venta ventas
             for (int k = 0; k < cantidadProductos; k++)
             {
                 if (productos[k].codigoProducto == codigoProductoVenta &&
-                    productos[k].codigoMarca == marcas[i].codigo)
+                        productos[k].codigoMarca == marcas[i].codigo)
                 {
 
                     for (int l = 0; l < cantidadFormas; l++)
@@ -186,6 +187,61 @@ void reporteVentasPorMarcaYPago(Marca marcas[], int cantidadMarcas, Venta ventas
 
     limpiarPantalla();
 }
+
+
+
+void reporteProductosSinVentas(Producto productos[], int cantidadProductos,
+                               Venta ventas[], int cantidadVentas)
+{
+
+    if (cantidadVentas == 0)
+    {
+        cout << "No hay ventas registradas. Todos los productos están sin ventas.\n";
+        for (int i = 0; i < cantidadProductos; i++)
+        {
+            cout << "Código: " << productos[i].codigoProducto
+                 << " - Nombre: " << productos[i].nombre << endl;
+        }
+        limpiarPantalla();
+        return;
+    }
+
+    cout << "\n--- PRODUCTOS SIN VENTAS ---\n\n";
+
+    bool haySinVentas = false;
+
+    for (int i = 0; i < cantidadProductos; i++)
+    {
+        bool vendido = false;
+
+        for (int j = 0; j < cantidadVentas; j++)
+        {
+            if (productos[i].codigoProducto == ventas[j].codigoProducto)
+            {
+                vendido = true;
+                break; // ya encontramos una venta de este producto
+            }
+        }
+
+        if (!vendido)
+        {
+            haySinVentas = true;
+            cout << "Código: " << productos[i].codigoProducto
+                 << " - Nombre: " << productos[i].nombre << endl;
+        }
+    }
+
+    if (!haySinVentas)
+    {
+        cout << "¡Todos los productos registraron al menos una venta!\n";
+    }
+
+    limpiarPantalla();
+}
+
+
+
+
 
 
 

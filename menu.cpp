@@ -102,6 +102,8 @@ void reporte(Producto productos[], Marca marcas[], FormaPago formasPago[], int c
             reporteVentasPorMarcaYPago(marcas, cantidadMarcas, venta, cantidadVentas, formasPago, cantidadFormas, productos, cantidadProductos);
             break;
         case 4:
+            reporteProductosSinVentas(productos, cantidadProductos,
+                                venta, cantidadVentas);
             break;
         case 5:
             break;
