@@ -88,4 +88,48 @@ void reporteRecaudacionPorProducto(Producto productos[], int cantidadProductos, 
     limpiarPantalla();
 }
 
+void reportePorcentajeDeVentaPorFormaDePago(FormaPago formasPago[], int cantidadFormas, Venta venta[], int cantidadVentas)
+{
+    if (cantidadVentas == 0)
+    {
+        cout << "No hay ventas registradas para generar el reporte.\n";
+        limpiarPantalla();
+        return;
+    }
+
+    // Contadores para cada forma de pago
+    int conteoPorForma[5] = {0}; // Asumimos máximo 5 formas de pago
+
+    // Contamos cuántas ventas tiene cada forma de pago
+    for (int i = 0; i < cantidadVentas; i++)
+    {
+        for (int j = 0; j < cantidadFormas; j++)
+        {
+            if (venta[i].formaDePago == formasPago[j].codigo)
+            {
+                conteoPorForma[j]++;
+                break;
+            }
+        }
+    }
+
+    cout << "\n--- PORCENTAJE DE VENTAS POR FORMA DE PAGO ---\n\n";
+    cout << left;
+    cout << setw(25) << "Forma de Pago"
+         << setw(15) << "Porcentaje" << endl;
+    cout << string(40, '-') << endl;
+
+    // Calculamos y mostramos el porcentaje de cada forma de pago
+    for (int i = 0; i < cantidadFormas; i++)
+    {
+        float porcentaje = (float)conteoPorForma[i] / cantidadVentas * 100.0;
+        cout << setw(25) << formasPago[i].nombre
+             << fixed << setprecision(2) << porcentaje << "%" << endl;
+    }
+
+    limpiarPantalla();
+}
+
+
+
 
