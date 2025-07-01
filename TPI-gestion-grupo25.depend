@@ -43,7 +43,7 @@
 1750657044 f:\estudios\tecnicatura-en-programacion-utn-frgp\proyectos\tpi-gestion-grupo25\carga.h
 	"structs.h"
 
-1751331996 source:c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\carga.cpp
+1751332159 source:c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\carga.cpp
 	<iostream>
 	<cstring>
 	"structs.h"
@@ -51,7 +51,7 @@
 	"limpiarPantalla.h"
 	"esConsecutivo.h"
 
-1750734763 c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\structs.h
+1751334632 c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\structs.h
 	<string>
 
 1751332105 c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\carga.h
@@ -81,4 +81,36 @@
 1751329206 source:c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp de manuel\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\esconsecutivo.cpp
 	<iostream>
 	"esConsecutivo.h"
+
+1751159340 source:c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp programacion grupo 25\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\main.cpp
+	<iostream>
+	"menu.h"
+
+1751159014 c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp programacion grupo 25\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\menu.h
+
+1751335630 source:c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp programacion grupo 25\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\carga.cpp
+	<iostream>
+	<cstring>
+	"structs.h"
+	"carga.h"
+	"funciones.h"
+
+1751334632 c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp programacion grupo 25\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\structs.h
+	<string>
+
+1751332105 c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp programacion grupo 25\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\carga.h
+	"structs.h"
+
+1751334632 c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp programacion grupo 25\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\funciones.h
+
+1751335630 source:c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp programacion grupo 25\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\funciones.cpp
+	<iostream>
+	"funciones.h"
+
+1751335630 source:c:\users\fedes\desktop\materias 1er cuatrimestre\programacion\tp funciones y vectores\tp programacion grupo 25\tf-gestion-grupo25-tup-main (1)\tf-gestion-grupo25-tup-main\menu.cpp
+	<iostream>
+	"menu.h"
+	"structs.h"
+	"carga.h"
+	"funciones.h"
 

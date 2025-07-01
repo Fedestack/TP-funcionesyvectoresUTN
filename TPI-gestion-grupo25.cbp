@@ -36,14 +36,8 @@
 		<Unit filename="carga.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="esConsecutivo.cpp" />
-		<Unit filename="esConsecutivo.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="limpiarPantalla.cpp" />
-		<Unit filename="limpiarPantalla.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="funciones.cpp" />
+		<Unit filename="funciones.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menu.cpp" />
 		<Unit filename="menu.h" />

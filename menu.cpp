@@ -2,7 +2,7 @@
 #include "menu.h"
 #include "structs.h"
 #include "carga.h"
-#include "limpiarPantalla.h"
+#include "funciones.h"
 
 using namespace std;
 

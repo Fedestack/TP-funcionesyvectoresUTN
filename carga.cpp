@@ -2,8 +2,8 @@
 #include <cstring>
 #include "structs.h"
 #include "carga.h"
-#include "limpiarPantalla.h"
-#include "esConsecutivo.h"
+#include "funciones.h"
+
 
 using namespace std;
 

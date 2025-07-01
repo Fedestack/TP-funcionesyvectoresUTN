@@ -9,17 +9,17 @@ struct Marca {
 };
 
 struct Producto {
-    int codigoProducto;      // 3 dígitos, no consecutivos
-    string nombre;         // Nombre del producto
+    int codigoProducto;
+    string nombre;
     float precioVenta;
     float precioCompra;
     int stock;
-    int codigoMarca;         // Debe coincidir con una marca cargada
+    int codigoMarca;
 };
 
 struct FormaPago {
     string codigo;      // EF, MP, TR, TC, CT
-    string nombre;     // Efectivo, etc.
+    string nombre;
     int porcentaje;      // Positivo (interés), negativo (descuento)
 };
 
