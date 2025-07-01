@@ -25,6 +25,7 @@ void menuPrincipal()
     bool formasCargadas = false;
 
     //LOTE DE VENTAS
+    Venta venta;
     int cantidadVentas = 0;
 
     int opcion;
@@ -54,17 +55,17 @@ void menuPrincipal()
             break;
         case 4:
             cargarVentas(productos, cantidadProductos, formasPago, cantidadFormas,
-                         marcasCargadas, productosCargados, formasCargadas, cantidadVentas);
+                         marcasCargadas, productosCargados, formasCargadas, cantidadVentas, venta);
             break;
         case 5:
-            reporte();
+            reporte(productos, marcas, formasPago, cantidadProductos, cantidadVentas, venta);
             break;
         case 0:
             cout << "\n Gracias por usar el sistema.\n";
             break;
         default:
             cout << "\n Opcion no valida.\n";
-            void limpiarPantalla();
+               limpiarPantalla();
         }
 
     }
@@ -72,7 +73,7 @@ void menuPrincipal()
 }
 
 
-void reporte()
+void reporte(Producto productos[], Marca marcas[], FormaPago formasPago[], int cantidadProductos, int cantidadVentas, Venta venta)
 {
     int opcion;
 
@@ -91,7 +92,7 @@ void reporte()
         switch(opcion)
         {
         case 1:
-           // reporteRecaudacionPorProducto(productos, cantProductos, ventas, cantVentas);
+            reporteRecaudacionPorProducto(productos, marcas, formasPago, cantidadProductos, cantidadVentas, venta);
             break;
         case 2:
             break;

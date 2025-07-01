@@ -36,6 +36,10 @@
 		<Unit filename="carga.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="esConsecutivo.cpp" />
+		<Unit filename="esConsecutivo.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="limpiarPantalla.cpp" />
 		<Unit filename="limpiarPantalla.h">
 			<Option target="&lt;{~None~}&gt;" />

@@ -3,22 +3,9 @@
 #include "structs.h"
 #include "carga.h"
 #include "limpiarPantalla.h"
+#include "esConsecutivo.h"
 
 using namespace std;
-
-// VERIFICA SI LOS NUMEROS SON CONSECUTIVOS
-bool esConsecutivo(int numero)
-{
-    int num1 = numero/100;
-    int num2 = (numero/10) % 10;
-    int num3 = numero % 10;
-
-    if((num2 == num1 + 1 && num3 == num2 + 1) || (num2 == num1 - 1 && num3 == num2 - 1))
-    {
-        return true;
-    }
-    return false;
-}
 
 
 void limpiarPantalla();
@@ -297,7 +284,7 @@ void cargarFormasPago(FormaPago formasPago[], bool &formasCargadas, int &cantida
 
 
 void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[], int cantidadFormas,
-                  bool &marcasCargadas, bool &productosCargados, bool &formasCargadas, int &cantidadVentas)
+                  bool &marcasCargadas, bool &productosCargados, bool &formasCargadas, int &cantidadVentas, Venta venta)
 {
 
     // VERIFICAMOS QUE TODOS LOS PUNTOS ANTERIORES ESTEN CARGADOS
@@ -331,7 +318,7 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
             return;
         }
 
-        Venta venta;
+        //Venta venta;
         venta.numeroDeCompra = numeroCompra;
 
         cout << "Codigo de producto: ";
@@ -485,6 +472,16 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
     limpiarPantalla();
 }
 
+void reporteRecaudacionPorProducto(Producto productos[], Marca marcas[], FormaPago formasPago[],
+                                   int cantidadProductos, int cantidadVentas, Venta venta){
+
+
+
+
+
+
+
+}
 
 
 
