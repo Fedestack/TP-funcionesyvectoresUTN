@@ -97,10 +97,10 @@ void reportePorcentajeDeVentaPorFormaDePago(FormaPago formasPago[], int cantidad
         return;
     }
 
-    // Contadores para cada forma de pago
-    int conteoPorForma[5] = {0}; // Asumimos máximo 5 formas de pago
 
-    // Contamos cuántas ventas tiene cada forma de pago
+    int conteoPorForma[5] = {0};
+
+
     for (int i = 0; i < cantidadVentas; i++)
     {
         for (int j = 0; j < cantidadFormas; j++)
@@ -119,7 +119,7 @@ void reportePorcentajeDeVentaPorFormaDePago(FormaPago formasPago[], int cantidad
          << setw(15) << "Porcentaje" << endl;
     cout << string(40, '-') << endl;
 
-    // Calculamos y mostramos el porcentaje de cada forma de pago
+
     for (int i = 0; i < cantidadFormas; i++)
     {
         float porcentaje = (float)conteoPorForma[i] / cantidadVentas * 100.0;
