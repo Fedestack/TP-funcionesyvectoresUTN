@@ -58,7 +58,7 @@ void menuPrincipal()
                          marcasCargadas, productosCargados, formasCargadas, cantidadVentas, venta);
             break;
         case 5:
-            reporte(productos, marcas, formasPago, cantidadProductos, cantidadVentas, venta, cantidadFormas);
+            reporte(productos, marcas, formasPago, cantidadProductos, cantidadVentas, venta, cantidadFormas, cantidadMarcas);
             break;
         case 0:
             cout << "\n Gracias por usar el sistema.\n";
@@ -73,7 +73,8 @@ void menuPrincipal()
 }
 
 
-void reporte(Producto productos[], Marca marcas[], FormaPago formasPago[], int cantidadProductos, int cantidadVentas, Venta venta[], int cantidadFormas)
+void reporte(Producto productos[], Marca marcas[], FormaPago formasPago[], int cantidadProductos, int cantidadVentas, Venta venta[],
+             int cantidadFormas, int cantidadMarcas)
 {
     int opcion;
 
@@ -98,6 +99,7 @@ void reporte(Producto productos[], Marca marcas[], FormaPago formasPago[], int c
             reportePorcentajeDeVentaPorFormaDePago(formasPago, cantidadFormas, venta, cantidadVentas);
             break;
         case 3:
+            reporteVentasPorMarcaYPago(marcas, cantidadMarcas, venta, cantidadVentas, formasPago, cantidadFormas, productos, cantidadProductos);
             break;
         case 4:
             break;

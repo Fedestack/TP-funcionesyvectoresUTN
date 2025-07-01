@@ -130,6 +130,68 @@ void reportePorcentajeDeVentaPorFormaDePago(FormaPago formasPago[], int cantidad
     limpiarPantalla();
 }
 
+void reporteVentasPorMarcaYPago(Marca marcas[], int cantidadMarcas, Venta ventas[], int cantidadVentas, FormaPago formasPago[],
+                                int cantidadFormas, Producto productos[], int cantidadProductos)
+{
+
+    if (cantidadVentas == 0)
+    {
+        cout << "No hay ventas registradas para generar el reporte.\n";
+        limpiarPantalla();
+        return;
+    }
+
+    cout << "\n--- VENTAS POR MARCA Y FORMA DE PAGO ---\n\n";
+
+    for (int i = 0; i < cantidadMarcas; i++)
+    {
+        cout << "Marca: " << marcas[i].nombre << endl;
+
+
+        int ventasPorForma[5] = {0};
+
+        for (int j = 0; j < cantidadVentas; j++)
+        {
+            int codigoProductoVenta = ventas[j].codigoProducto;
+            string formaPagoVenta = ventas[j].formaDePago;
+
+
+            for (int k = 0; k < cantidadProductos; k++)
+            {
+                if (productos[k].codigoProducto == codigoProductoVenta &&
+                    productos[k].codigoMarca == marcas[i].codigo)
+                {
+
+                    for (int l = 0; l < cantidadFormas; l++)
+                    {
+                        if (formasPago[l].codigo == formaPagoVenta)
+                        {
+                            ventasPorForma[l] += ventas[j].cantidadVendida;
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+
+        for (int m = 0; m < cantidadFormas; m++)
+        {
+            cout << "  " << formasPago[m].codigo << " (" << formasPago[m].nombre << "): "
+                 << ventasPorForma[m] << " unidades vendidas" << endl;
+        }
+
+        cout << "-----------------------------------------\n";
+    }
+
+    limpiarPantalla();
+}
+
+
+
+
+
+
 
 
 
