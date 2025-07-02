@@ -197,6 +197,7 @@ void reporteProductosSinVentas(Producto productos[], int cantidadProductos,
     if (cantidadVentas == 0)
     {
         cout << "No hay ventas registradas. Todos los productos están sin ventas.\n";
+
         for (int i = 0; i < cantidadProductos; i++)
         {
             cout << "Código: " << productos[i].codigoProducto
@@ -239,7 +240,156 @@ void reporteProductosSinVentas(Producto productos[], int cantidadProductos,
     limpiarPantalla();
 }
 
+void reporteTopClientesConSorteo(Venta venta[], int cantidadVentas)
+{
+    if (cantidadVentas == 0)
+    {
+        cout << "No hay ventas registradas. No se puede hacer el sorteo.\n";
+        limpiarPantalla();
+        return;
+    }
 
+    // Paso 1: contar compras por cliente
+    int comprasPorCliente[50] = {0}; // índice 0 = cliente 1, índice 49 = cliente 50
+
+    for (int i = 0; i < cantidadVentas; i++)
+    {
+        int cod = venta[i].codigoDeCliente;
+        if (cod >= 1 && cod <= 50)
+
+        {
+            comprasPorCliente[cod - 1]++;
+        }
+    }
+
+    // Paso 2: crear vectores paralelos solo con clientes que compraron
+    int codigosClientes[50];     // códigos de los clientes
+    int cantidadCompras[50];     // cantidad de compras de cada cliente
+    int cantidadClientesConCompras = 0;
+
+    for (int i = 0; i < 50; i++)
+    {
+        if (comprasPorCliente[i] > 0)
+        {
+            codigosClientes[cantidadClientesConCompras] = i + 1;      // código del cliente
+            cantidadCompras[cantidadClientesConCompras] = comprasPorCliente[i]; // sus compras
+            cantidadClientesConCompras++;
+        }
+    }
+
+    if (cantidadClientesConCompras == 0)
+    {
+        cout << "Ningún cliente realizó compras.\n";
+        limpiarPantalla();
+        return;
+    }
+
+
+
+
+    // Paso 2: armar vector de estructuras para ordenarlos
+//    ClienteCompra clientes[50];
+//    int cantidadClientesConCompras = 0;
+//
+//    for (int i = 0; i < 50; i++)
+//    {
+//        if (comprasPorCliente[i] > 0)
+//        {
+//            clientes[cantidadClientesConCompras].codigoCliente = i + 1;
+//            clientes[cantidadClientesConCompras].cantidadCompras = comprasPorCliente[i];
+//            cantidadClientesConCompras++;
+//        }
+//    }
+
+//    if (cantidadClientesConCompras == 0)
+//    {
+//        cout << "Ningún cliente realizó compras.\n";
+//        limpiarPantalla();
+//        return;
+//    }
+
+    // Paso 3: ordenar por cantidad de compras (burbujeo descendente)
+//    for (int i = 0; i < cantidadClientesConCompras - 1; i++)
+//    {
+//        for (int j = 0; j < cantidadClientesConCompras - i - 1; j++)
+//        {
+//            if (clientes[j].cantidadCompras < clientes[j + 1].cantidadCompras)
+//            {
+//                // Usar una variable auxiliar para intercambiar
+//                ClienteCompra aux = clientes[j];
+//                clientes[j] = clientes[j + 1];
+//                clientes[j + 1] = aux;
+//            }
+//        }
+//    }
+
+    // Paso 3: ordenar por cantidad de compras (burbujeo descendente)
+    // Hay que mantener sincronizados ambos vectores
+    for (int i = 0; i < cantidadClientesConCompras - 1; i++)
+    {
+        for (int j = 0; j < cantidadClientesConCompras - i - 1; j++)
+        {
+            if (cantidadCompras[j] < cantidadCompras[j + 1])
+            {
+                // Intercambiar cantidades
+                int tempCompras = cantidadCompras[j];
+                cantidadCompras[j] = cantidadCompras[j + 1];
+                cantidadCompras[j + 1] = tempCompras;
+
+                // Intercambiar códigos (para mantener la relación)
+                int tempCodigo = codigosClientes[j];
+                codigosClientes[j] = codigosClientes[j + 1];
+                codigosClientes[j + 1] = tempCodigo;
+            }
+        }
+    }
+
+    // Paso 4: mostrar top 10
+    int top;
+    if (cantidadClientesConCompras < 10)
+    {
+        top = cantidadClientesConCompras;
+    }
+    else
+    {
+        top = 10;
+    }
+
+    cout << "\n--- TOP " << top << " CLIENTES CON MÁS COMPRAS ---\n";
+    for (int i = 0; i < top; i++)
+    {
+        cout << "Cliente #" << codigosClientes[i]
+             << " - Compras: " << cantidadCompras[i] << endl;
+    }
+
+    // Paso 5: sorteo de 3 ganadores al azar del top 10
+    srand(time(0));
+    int ganadores[3];
+    int usados[10] = {0};
+    int cantidadGanadores = 0;
+
+    while (cantidadGanadores < 3 && cantidadGanadores < top)
+    {
+        int elegido = rand() % top;
+        if (!usados[elegido])
+        {
+            usados[elegido] = 1;
+            ganadores[cantidadGanadores] = elegido;
+            cantidadGanadores++;
+        }
+    }
+
+    // Paso 6: mostrar ganadores
+      cout << "\n--- GANADORES DE CUPONES ---\n";
+    for (int i = 0; i < cantidadGanadores; i++)
+    {
+        int indice = ganadores[i];
+        cout << "Cliente #" << codigosClientes[indice]
+             << " - Compras: " << cantidadCompras[indice] << endl;
+    }
+
+    limpiarPantalla();
+}
 
 
 

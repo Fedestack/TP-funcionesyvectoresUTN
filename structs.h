@@ -3,12 +3,14 @@
 #include <string>
 using namespace std;
 
-struct Marca {
+struct Marca
+{
     int codigo;
     string nombre;
 };
 
-struct Producto {
+struct Producto
+{
     int codigoProducto;
     string nombre;
     float precioVenta;
@@ -17,13 +19,15 @@ struct Producto {
     int codigoMarca;
 };
 
-struct FormaPago {
+struct FormaPago
+{
     string codigo;      // EF, MP, TR, TC, CT
     string nombre;
     int porcentaje;      // Positivo (interés), negativo (descuento)
 };
 
-struct Venta {
+struct Venta
+{
     int numeroDeCompra;
     int codigoProducto;   //mismo codigo que el de producto
     string formaDePago;
@@ -33,13 +37,19 @@ struct Venta {
 };
 
 struct InfoProducto
-    {
-        int codigo;
-        string nombre;
-        float totalRecaudado;
-        int cantidadVendida;
-        int stockRestante;
-    };
+{
+    int codigo;
+    string nombre;
+    float totalRecaudado;
+    int cantidadVendida;
+    int stockRestante;
+};
+
+struct ClienteCompra
+{
+    int codigoCliente;
+    int cantidadCompras;
+};
 
 
 #endif // STRUCTS_H_INCLUDED

@@ -106,6 +106,7 @@ void reporte(Producto productos[], Marca marcas[], FormaPago formasPago[], int c
                                 venta, cantidadVentas);
             break;
         case 5:
+            reporteTopClientesConSorteo(venta, cantidadVentas);
             break;
         case 0:
             cout << "Regresando al menu principal\n";

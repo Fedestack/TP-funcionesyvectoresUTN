@@ -22,6 +22,8 @@ void reporteVentasPorMarcaYPago(Marca marcas[], int cantidadMarcas, Venta venta[
                                 int cantidadFormas, Producto productos[], int cantidadProductos);
 
 void reporteProductosSinVentas(Producto productos[], int cantidadProductos,
-                                Venta ventas[], int cantidadVentas);
+                                Venta venta[], int cantidadVentas);
+
+void reporteTopClientesConSorteo(Venta venta[], int cantidadVentas);
 
 #endif // CARGA_H_INCLUDED
