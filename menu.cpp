@@ -61,7 +61,7 @@ void menuPrincipal()
             reporte(productos, marcas, formasPago, cantidadProductos, cantidadVentas, venta, cantidadFormas, cantidadMarcas);
             break;
         case 0:
-            cout << "\n Gracias por usar el sistema.\n";
+            cout << "\n Gracias Vuelva prontos.\n";
             break;
         default:
             cout << "\n Opcion no valida.\n";

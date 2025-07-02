@@ -21,15 +21,15 @@ struct Producto
 
 struct FormaPago
 {
-    string codigo;      // EF, MP, TR, TC, CT
+    string codigo;
     string nombre;
-    int porcentaje;      // Positivo (interés), negativo (descuento)
+    int porcentaje;
 };
 
 struct Venta
 {
     int numeroDeCompra;
-    int codigoProducto;   //mismo codigo que el de producto
+    int codigoProducto;
     string formaDePago;
     int cantidadVendida;
     int codigoDeCliente;

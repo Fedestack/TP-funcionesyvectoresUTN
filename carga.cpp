@@ -184,21 +184,21 @@ void cargarProductos(Producto productos[], int &cantidadProductos, bool &product
 void cargarFormasPago(FormaPago formasPago[], bool &formasCargadas, int &cantidadFormas, Marca marcas[], int cantidadMarcas)
 {
 
-    if (!cantidadMarcas)
-    {
-        cout << "No se han cargado marcas. Debe cargar el lote de marcas antes.\n";
-        limpiarPantalla();
-        return;
-    }
-
-
-
-    if (formasCargadas)
-    {
-        cout << "Ya se cargaron las formas de pago.\n";
-        limpiarPantalla();
-        return;
-    }
+//    if (!cantidadMarcas)
+//    {
+//        cout << "No se han cargado marcas. Debe cargar el lote de marcas antes.\n";
+//        limpiarPantalla();
+//        return;
+//    }
+//
+//
+//
+//    if (formasCargadas)
+//    {
+//        cout << "Ya se cargaron las formas de pago.\n";
+//        limpiarPantalla();
+//        return;
+//    }
 
     const string codigosValidos[] = {"EF", "MP", "TR", "TC", "CT"};
     bool codigoUsado[5] = {false};
@@ -217,7 +217,7 @@ void cargarFormasPago(FormaPago formasPago[], bool &formasCargadas, int &cantida
         bool valido = false;
         for (int j = 0; j < 5; j++)
         {
-            if ((codigoIngresado == codigosValidos[j]) && !codigoUsado[j])
+            if ((codigoIngresado == codigosValidos[j]) && codigoUsado[j] == false)
             {
                 f.codigo = codigoIngresado;
                 codigoUsado[j] = true;
