@@ -11,7 +11,7 @@ using namespace std;
 void limpiarPantalla();
 
 
-void cargarMarcas(Marca marcas[], int &cantidad, bool &cargado)
+void cargarMarcas(Marca marcas[], int &cantidadMarcas, bool &cargado)
 {
 
     if (cargado)
@@ -35,24 +35,25 @@ void cargarMarcas(Marca marcas[], int &cantidad, bool &cargado)
 
         cout << "Ingresa codigo de marca (de 1 a 10): ";
         cin >> codigo;
+        cin.ignore();
 
         if (codigo < 1 || codigo > 10)
         {
             cout << "Codigo invalido. Debe estar entre 1 y 10.\n";
-            cantidad = 0;
+            cantidadMarcas = 0;
             cargado = false;
             limpiarPantalla();
             return;
         }
 
         cout << "Nombre de la marca: ";
-        cin.ignore();
+        //cin.ignore();
         getline(cin, nombre);
 
         if (nombre.empty())
         {
             cout << "Nombre no puede estar vacío.\n";
-            cantidad = 0;
+            cantidadMarcas = 0;
             cargado = false;
             limpiarPantalla();
             return;
@@ -61,7 +62,7 @@ void cargarMarcas(Marca marcas[], int &cantidad, bool &cargado)
 
         marcas[i].codigo = codigo;
         marcas[i].nombre = nombre;
-        cantidad++;
+        cantidadMarcas++;
     }
 
     cargado = true;
@@ -296,7 +297,7 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
     }
 
     cout << "\n--- CARGA DE VENTAS ---\n";
-    cout << "Ingrese los datos de las ventas (ingrese 0 en numero de compra para finalizar):\n";
+    cout << "Ingrese los datos de las ventas (ingrese 0 para finalizar):\n";
 
     int numeroCompra;
 
