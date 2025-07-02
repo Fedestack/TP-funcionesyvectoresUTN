@@ -249,8 +249,7 @@ void reporteTopClientesConSorteo(Venta venta[], int cantidadVentas)
         return;
     }
 
-    // Paso 1: contar compras por cliente
-    int comprasPorCliente[50] = {0}; // índice 0 = cliente 1, índice 49 = cliente 50
+    int comprasPorCliente[50] = {0};
 
     for (int i = 0; i < cantidadVentas; i++)
     {
@@ -262,17 +261,17 @@ void reporteTopClientesConSorteo(Venta venta[], int cantidadVentas)
         }
     }
 
-    // Paso 2: crear vectores paralelos solo con clientes que compraron
-    int codigosClientes[50];     // códigos de los clientes
-    int cantidadCompras[50];     // cantidad de compras de cada cliente
+
+    int codigosClientes[50];
+    int cantidadCompras[50];
     int cantidadClientesConCompras = 0;
 
     for (int i = 0; i < 50; i++)
     {
         if (comprasPorCliente[i] > 0)
         {
-            codigosClientes[cantidadClientesConCompras] = i + 1;      // código del cliente
-            cantidadCompras[cantidadClientesConCompras] = comprasPorCliente[i]; // sus compras
+            codigosClientes[cantidadClientesConCompras] = i + 1;
+            cantidadCompras[cantidadClientesConCompras] = comprasPorCliente[i];
             cantidadClientesConCompras++;
         }
     }
@@ -284,67 +283,31 @@ void reporteTopClientesConSorteo(Venta venta[], int cantidadVentas)
         return;
     }
 
-
-
-
-    // Paso 2: armar vector de estructuras para ordenarlos
-//    ClienteCompra clientes[50];
-//    int cantidadClientesConCompras = 0;
-//
-//    for (int i = 0; i < 50; i++)
-//    {
-//        if (comprasPorCliente[i] > 0)
-//        {
-//            clientes[cantidadClientesConCompras].codigoCliente = i + 1;
-//            clientes[cantidadClientesConCompras].cantidadCompras = comprasPorCliente[i];
-//            cantidadClientesConCompras++;
-//        }
-//    }
-
-//    if (cantidadClientesConCompras == 0)
-//    {
-//        cout << "Ningún cliente realizó compras.\n";
-//        limpiarPantalla();
-//        return;
-//    }
-
-    // Paso 3: ordenar por cantidad de compras (burbujeo descendente)
-//    for (int i = 0; i < cantidadClientesConCompras - 1; i++)
-//    {
-//        for (int j = 0; j < cantidadClientesConCompras - i - 1; j++)
-//        {
-//            if (clientes[j].cantidadCompras < clientes[j + 1].cantidadCompras)
-//            {
-//                // Usar una variable auxiliar para intercambiar
-//                ClienteCompra aux = clientes[j];
-//                clientes[j] = clientes[j + 1];
-//                clientes[j + 1] = aux;
-//            }
-//        }
-//    }
-
-    // Paso 3: ordenar por cantidad de compras (burbujeo descendente)
-    // Hay que mantener sincronizados ambos vectores
+        // BURBUJEO
     for (int i = 0; i < cantidadClientesConCompras - 1; i++)
     {
+        bool intercambio = false;
+
         for (int j = 0; j < cantidadClientesConCompras - i - 1; j++)
         {
             if (cantidadCompras[j] < cantidadCompras[j + 1])
             {
-                // Intercambiar cantidades
-                int tempCompras = cantidadCompras[j];
-                cantidadCompras[j] = cantidadCompras[j + 1];
-                cantidadCompras[j + 1] = tempCompras;
 
-                // Intercambiar códigos (para mantener la relación)
-                int tempCodigo = codigosClientes[j];
+                int auxCompras = cantidadCompras[j];
+                cantidadCompras[j] = cantidadCompras[j + 1];
+                cantidadCompras[j + 1] = auxCompras;
+
+                int auxCodigo = codigosClientes[j];
                 codigosClientes[j] = codigosClientes[j + 1];
-                codigosClientes[j + 1] = tempCodigo;
+                codigosClientes[j + 1] = auxCodigo;
+                intercambio = true;
             }
         }
+        if (!intercambio)
+            break;
     }
 
-    // Paso 4: mostrar top 10
+
     int top;
     if (cantidadClientesConCompras < 10)
     {
@@ -362,8 +325,8 @@ void reporteTopClientesConSorteo(Venta venta[], int cantidadVentas)
              << " - Compras: " << cantidadCompras[i] << endl;
     }
 
-    // Paso 5: sorteo de 3 ganadores al azar del top 10
-    srand(time(0));
+
+    srand(static_cast<unsigned int>(time(NULL)));
     int ganadores[3];
     int usados[10] = {0};
     int cantidadGanadores = 0;
@@ -379,7 +342,6 @@ void reporteTopClientesConSorteo(Venta venta[], int cantidadVentas)
         }
     }
 
-    // Paso 6: mostrar ganadores
       cout << "\n--- GANADORES DE CUPONES ---\n";
     for (int i = 0; i < cantidadGanadores; i++)
     {
