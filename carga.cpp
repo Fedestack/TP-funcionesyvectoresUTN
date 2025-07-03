@@ -288,7 +288,7 @@ void cargarVentas(Producto productos[], int cantidadProductos, FormaPago formas[
                   bool &marcasCargadas, bool &productosCargados, bool &formasCargadas, int &cantidadVentas, Venta venta[])
 {
 
-    // VERIFICAMOS QUE TODOS LOS PUNTOS ANTERIORES ESTEN CARGADOS
+
     if (!marcasCargadas || !productosCargados || !formasCargadas)
     {
         cout << "Error: Debe cargar todos los lotes (marcas, productos y formas de pago) antes de cargar ventas.\n";
